@@ -45,20 +45,20 @@ int calculator() {
     switch (optr)
     {
     case '+':
-        printf("Sum of %.2f and %.2f is %.2f\n", a, b, a+b);
+        printf("%.2f + %.2f = %.2f\n", a, b, a+b);
         break;
     case '-':
-        printf("%.2f subtracted from %.2f is %.2f\n", b, a, a-b);
+        printf("%.2f - %.2f = %.2f\n", a, b, a-b);
         break;
     case '*':
-        printf("Product of %.2f and %.2f is %.2f\n", a, b, a*b);
+        printf("%.2f * %.2f = %.2f\n", a, b, a*b);
         break;
     case '/':
         if (b == 0) {
             printf("Division with zero is not possible.\n");
             return 1;
         } else {
-            printf("%.2f divided by %.2f is %.2f\n", a, b, a/b);
+            printf("%.2f / %.2f = %.2f\n", a, b, a/b);
         }
         break;
     }
