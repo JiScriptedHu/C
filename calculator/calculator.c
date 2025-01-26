@@ -1,6 +1,13 @@
 #include <stdio.h>
 
+int calculator();
+
 int main() {
+    calculator();
+    return 0;
+}
+
+int calculator() {
     float a, b;
     char optr;
 
@@ -11,8 +18,8 @@ int main() {
     scanf(" %c", &optr);
 
     if (optr != '+' && optr != '-' && optr != '*' && optr != '/') {
-        printf("Invalid operation");
-        return 0;
+        printf("Invalid operation.\n");
+        return 1;
     }
 
     printf("Enter second number: ");
@@ -21,20 +28,20 @@ int main() {
     switch (optr)
     {
     case '+':
-        printf("Sum of %.2f and %.2f is %.2f", a, b, a+b);
+        printf("Sum of %.2f and %.2f is %.2f\n", a, b, a+b);
         break;
     case '-':
-        printf("%.2f subtracted from %.2f is %.2f", b, a, a-b);
+        printf("%.2f subtracted from %.2f is %.2f\n", b, a, a-b);
         break;
     case '*':
-        printf("Product of %.2f and %.2f is %.2f", a, b, a*b);
+        printf("Product of %.2f and %.2f is %.2f\n", a, b, a*b);
         break;
     case '/':
         if (b == 0) {
-            printf("Division with zero is not possible.");
+            printf("Division with zero is not possible.\n");
             return 1;
         } else {
-            printf("%.2f divided by %.2f is %.2f", a, b, a/b);
+            printf("%.2f divided by %.2f is %.2f\n", a, b, a/b);
         }
         break;
     }
