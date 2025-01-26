@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int calculator();
 void startCalculator();
+float calculator();
 
 int main() {
     startCalculator();
@@ -9,14 +9,14 @@ int main() {
 }
 
 void startCalculator() {
-    char fun;
+    char startf;
 
     printf("Enter 's' to start or 'e' to exit the calculator\n");
-    scanf(" %c", &fun);
+    scanf(" %c", &startf);
 
-    if (fun == 's') {
+    if (startf == 's') {
         calculator();
-    } else if (fun == 'e') {
+    } else if (startf == 'e') {
         printf("Exiting calculator...\n");
     } else {
         printf("Invalid input.\n");
@@ -24,7 +24,7 @@ void startCalculator() {
     }
 }
 
-int calculator() {
+float calculator() {
     float a, b;
     char optr;
 
