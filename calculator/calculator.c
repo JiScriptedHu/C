@@ -1,10 +1,27 @@
 #include <stdio.h>
 
 int calculator();
+void startCalculator();
 
 int main() {
-    calculator();
+    startCalculator();
     return 0;
+}
+
+void startCalculator() {
+    char fun;
+
+    printf("Enter 's' to start or 'e' to exit the calculator\n");
+    scanf(" %c", &fun);
+
+    if (fun == 's') {
+        calculator();
+    } else if (fun == 'e') {
+        printf("Exiting calculator...\n");
+    } else {
+        printf("Invalid input.\n");
+        startCalculator();
+    }
 }
 
 int calculator() {
