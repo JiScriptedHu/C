@@ -10,6 +10,11 @@ int main() {
     printf("Enter operation: ");
     scanf(" %c", &optr);
 
+    if (optr != '+' && optr != '-' && optr != '*' && optr != '/') {
+        printf("Invalid operation");
+        return 0;
+    }
+
     printf("Enter second number: ");
     scanf("%d", &b);
 
