@@ -17,7 +17,7 @@ int main() {
             answer = calculator();
         } else if (exit == 'c') {
             answer = continueCalculator(answer);
-        } else if (exit = 'e') {
+        } else if (exit == 'e') {
             printf("Exiting calculator...\n");
             return 0;
         }
