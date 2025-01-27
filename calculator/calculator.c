@@ -10,7 +10,7 @@ int main() {
     float answer = startCalculator();
     
     while (1) {
-        printf("Enter 'r' to restart, 'c' to continue, 'e' to exit the calculator\n");
+        printf("Enter 'r' to restart, 'c' to continue, 'e' to exit the calculator: ");
         scanf(" %c", &exit);
 
         if (exit == 'r') {
@@ -30,7 +30,7 @@ float startCalculator() {
     float answer;
     char startf;
 
-    printf("Enter 's' to start or 'e' to exit the calculator\n");
+    printf("Enter 's' to start or 'e' to exit the calculator: ");
     scanf(" %c", &startf);
 
     if (startf == 's') {
@@ -50,18 +50,18 @@ float calculator() {
     float a, b;
     char optr;
 
-    printf("Enter first number: ");
+    printf("Enter first operand: ");
     scanf("%f", &a);
 
-    printf("Enter operation (+, -, *, /) : ");
+    printf("Enter operator (+, -, *, /) : ");
     scanf(" %c", &optr);
 
     if (optr != '+' && optr != '-' && optr != '*' && optr != '/') {
-        printf("Invalid operation.\n");
+        printf("Invalid operator.\n");
         return 0.1;
     }
 
-    printf("Enter second number: ");
+    printf("Enter second operand: ");
     scanf("%f", &b);
 
     switch (optr) {
@@ -91,8 +91,8 @@ float continueCalculator(float answer) {
     float b;
     char optr;
 
-    printf("%.2f", answer);
-    printf("Enter operation (+, -, *, /) : ");
+    printf("Enter first operand: %.2f\n", answer);
+    printf("Enter operator (+, -, *, /) : ");
     scanf(" %c", &optr);
 
     if (optr != '+' && optr != '-' && optr != '*' && optr != '/') {
@@ -100,7 +100,7 @@ float continueCalculator(float answer) {
         return answer;
     }
 
-    printf("Enter second number: ");
+    printf("Enter second operand: ");
     scanf("%f", &b);
 
     switch (optr) {
