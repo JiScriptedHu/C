@@ -3,30 +3,24 @@
 #include <time.h>
 
 int main() {
-    int num, count = 1;
-    int i;
+    int number, guess, attempts = 1;
 
     srand(time(0));
-    num = (rand() % 100) + 1;
+    number = (rand() % 100) + 1;
 
-    printf("Guess The Number Game\n");
-    printf("Welcome\n");
+    printf("Welcome to Guess The Number Game\n");
 
     while (1){
         printf("Enter your guess: ");
-        scanf("%d", &i);
+        scanf("%d", &guess);
+        attempts++;
 
-        if (i > num) {
-            printf("Wrong guess.\n");
-            printf("Guess a smaller number.\n");
-            count++;
-        } else if (i < num) {
-            printf("Wrong guess!\n");
-            printf("Guess a larger number.\n");
-            count++;
+        if (guess > number) {
+            printf("Wrong guess! Guess a smaller number.\n");
+        } else if (guess < number) {
+            printf("Wrong guess! Guess a larger number.\n");
         } else {
-            printf("Congratulations! You guessed the correct number.\n");
-            printf("Total guesses: %d\n", count);
+            printf("Congratulations! You guessed the correct number in %d attempts.\n", attempts);
             break;
         }
     }
