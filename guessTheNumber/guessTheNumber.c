@@ -31,13 +31,18 @@ int input_guess () {
     int guess;
 
     printf("Enter your guess: ");
-    scanf("%d", &guess);
-
-    return guess;
+    while (1){
+        if (scanf("%d", &guess) == 1) {
+            return guess;
+        } else {
+            printf("Invalid input. Please enter a number!\n");
+            printf("Enter your guess: ");
+            while (getchar() != '\n');
+        }
+    }
 }
 
 int check_guess(int number, int guess, int attempts) {
-
     if (guess > number) {
         printf("Wrong guess! Guess a smaller number.\n");
         return 0;
