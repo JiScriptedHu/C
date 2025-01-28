@@ -1,8 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main() {
-    int num = 45, count = 1;
+    int num, count = 1;
     int i;
+
+    srand(time(0));
+    num = (rand() % 100) + 1;
 
     printf("Guess The Number Game\n");
     printf("Welcome\n");
