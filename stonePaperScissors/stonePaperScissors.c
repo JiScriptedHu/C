@@ -46,10 +46,19 @@ char systemInput() {
 char userInput() {
     char userChoice;
 
-    printf("Enter your choice: ");
-    scanf(" %c", &userChoice);
-
-    return userChoice;
+    while (1) {
+        printf("Enter your choice: ");
+        if (scanf(" %c", &userChoice) == 1) {
+            if (userChoice == 'r' || userChoice == 'p' || userChoice == 's') {
+                return userChoice;
+            } else {
+                printf("Invalid input. Please enter 'r', 'p', or 's'.\n");
+            }
+        } else {
+            printf("Invalid input. Please enter 'r', 'p', or 's'.\n");
+            while (getchar() != '\n');
+        }
+    }
 }
 
 int resultCheck(char systemChoice, char userChoice) {
