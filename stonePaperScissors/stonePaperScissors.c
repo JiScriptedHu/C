@@ -5,6 +5,7 @@
 char userInput();
 char systemInput();
 int resultCheck(char systemChoice, char userChoice);
+int exitMenu();
 
 int main() {
     char systemChoice, userChoice;
@@ -28,10 +29,9 @@ int main() {
             printf("You Lose!");
         }
 
-        printf("\n\nDo you want to play again? (y/n): ");
-        scanf(" %c", &playAgain);
+        playAgain = exitMenu();
 
-    } while (playAgain == 'y' || playAgain == 'Y');
+    } while (playAgain == 1);
     
     printf("Exiting the game...");
 
@@ -78,5 +78,25 @@ int resultCheck(char systemChoice, char userChoice) {
         return 1;
     } else if (systemChoice == 'p' && userChoice == 'r' || systemChoice == 'r' && userChoice == 's' || systemChoice == 's' && userChoice == 'p') {
         return -1;
+    }
+}
+
+int exitMenu() {
+    char exitChoice;
+    
+    while (1) {
+        printf("\nDo you want to play again? (y/n): ");
+        if (scanf(" %c", &exitChoice) == 1) {
+            if (exitChoice == 'y' || exitChoice == 'Y') {
+                return 1;
+            } else if (exitChoice == 'n' || exitChoice == 'N') {
+                return 0;
+            } else {
+                printf("\nInvalid input.");
+            }
+        } else {
+            printf("\nInvalid input.");
+            while (getchar() != '\n');
+        }
     }
 }
