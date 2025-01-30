@@ -9,21 +9,31 @@ int resultCheck(char systemChoice, char userChoice);
 int main() {
     char systemChoice, userChoice;
     int result;
+    char playAgain;
 
-    printf("\nLet's play Stone Paper Scissors!\n");
-    printf("'r' = stone\t'p' = paper\t's' = scissors\n\n");
+    do
+    {
+        printf("\nLet's play Stone Paper Scissors!\n");
+        printf("'r' = stone\t'p' = paper\t's' = scissors\n\n");
 
-    systemChoice = systemInput();
-    userChoice = userInput();
-    result = resultCheck(systemChoice, userChoice);
+        systemChoice = systemInput();
+        userChoice = userInput();
+        result = resultCheck(systemChoice, userChoice);
 
-    if (result == 0) {
-        printf("It's a Tie.");
-    } else if (result == 1) {
-        printf("You Won!");
-    } else if (result == -1) {
-        printf("You Lose!");
-    }
+        if (result == 0) {
+            printf("It's a Tie.");
+        } else if (result == 1) {
+            printf("You Won!");
+        } else if (result == -1) {
+            printf("You Lose!");
+        }
+
+        printf("\n\nDo you want to play again? (y/n): ");
+        scanf(" %c", &playAgain);
+
+    } while (playAgain == 'y' || playAgain == 'Y');
+    
+    printf("Exiting the game...");
 
     return 0;
 }
