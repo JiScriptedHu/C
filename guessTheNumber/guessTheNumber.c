@@ -10,8 +10,6 @@ int main() {
     int number, guess, attempts = 0;
     char playAgain;
 
-    
-
     do
     {
         srand(time(0));
