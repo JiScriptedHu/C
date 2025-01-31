@@ -8,6 +8,7 @@ int main() {
     char a[9];
     int x, o;
     int winner;
+    int boxOccupied = 0;
 
     printf("\nLet's play Tic Tac Toe!\n");
 
@@ -18,6 +19,7 @@ int main() {
     while(1) {
         x = inputPlayerOne();
         a[x] = 'X';
+        boxOccupied++;
 
         printf("\n%c\t%c\t%c\n%c\t%c\t%c\n%c\t%c\t%c\n", a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8]);
 
@@ -31,8 +33,14 @@ int main() {
             return 0;
         }
 
+        if (boxOccupied == 9) {
+            printf("\nGame Over! No winner");
+            return 0;
+        }
+
         o = inputPlayerTwo();
         a[o] = 'O';
+        boxOccupied++;
 
         printf("\n%c\t%c\t%c\n%c\t%c\t%c\n%c\t%c\t%c\n", a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8]);
 
