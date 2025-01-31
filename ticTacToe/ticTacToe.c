@@ -60,75 +60,87 @@ int main() {
 
 int inputPlayerOne() {
     char choiceX;
-    printf("\nPlayer1 (x) > Select your box: ");
-    scanf(" %c", &choiceX);
+    
+    while (1) {
+        printf("\nPlayer1 (x) > Select your box: ");
+        scanf(" %c", &choiceX);
 
-    switch (choiceX)
-    {
-    case 'a':
-    case 'A': return 0;
-        break;
-    case 'b':
-    case 'B': return 1;
-        break;
-    case 'c':
-    case 'C': return 2;
-        break;
-    case 'd':
-    case 'D': return 3;
-        break;
-    case 'e':
-    case 'E': return 4;
-        break;
-    case 'f':
-    case 'F': return 5;
-        break;
-    case 'g':
-    case 'G': return 6;
-        break;
-    case 'h':
-    case 'H': return 7;
-        break;
-    case 'i':
-    case 'I': return 8;
-        break;
+        switch (choiceX)
+        {
+        case 'a':
+        case 'A': return 0;
+            break;
+        case 'b':
+        case 'B': return 1;
+            break;
+        case 'c':
+        case 'C': return 2;
+            break;
+        case 'd':
+        case 'D': return 3;
+            break;
+        case 'e':
+        case 'E': return 4;
+            break;
+        case 'f':
+        case 'F': return 5;
+            break;
+        case 'g':
+        case 'G': return 6;
+            break;
+        case 'h':
+        case 'H': return 7;
+            break;
+        case 'i':
+        case 'I': return 8;
+            break;
+        default :
+            printf("Please select a valid box!");
+            while (getchar() != '\n');
+        }
     }
 }
 
 int inputPlayerTwo() {
     char choiceO;
-    printf("\nPlayer2 (o) > Select your box: ");
-    scanf(" %c", &choiceO);
+    
+    while (1) {
+        printf("\nPlayer2 (o) > Select your box: ");
+        scanf(" %c", &choiceO);
 
-    switch (choiceO)
-    {
-    case 'a':
-    case 'A': return 0;
-        break;
-    case 'b':
-    case 'B': return 1;
-        break;
-    case 'c':
-    case 'C': return 2;
-        break;
-    case 'd':
-    case 'D': return 3;
-        break;
-    case 'e':
-    case 'E': return 4;
-        break;
-    case 'f':
-    case 'F': return 5;
-        break;
-    case 'g':
-    case 'G': return 6;
-        break;
-    case 'h':
-    case 'H': return 7;
-        break;
-    case 'i':
-    case 'I': return 8;
-        break;
+        switch (choiceO)
+        {
+        case 'a':
+        case 'A': return 0;
+            break;
+        case 'b':
+        case 'B': return 1;
+            break;
+        case 'c':
+        case 'C': return 2;
+            break;
+        case 'd':
+        case 'D': return 3;
+            break;
+        case 'e':
+        case 'E': return 4;
+            break;
+        case 'f':
+        case 'F': return 5;
+            break;
+        case 'g':
+        case 'G': return 6;
+            break;
+        case 'h':
+        case 'H': return 7;
+            break;
+        case 'i':
+        case 'I': return 8;
+            break;
+        default :
+            printf("Please select a valid box!");
+            while (getchar() != '\n');
+        }
     }
 }
 
