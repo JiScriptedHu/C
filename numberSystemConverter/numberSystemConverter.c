@@ -3,7 +3,7 @@
 
 int function(int choice);
 int BinarytoDecimal(int number);
-int DecimaltoBinary(int number);
+void DecimaltoBinary(int number);
 int DecimaltoOctal(int number);
 int OctaltoDecimal(int number);
 int DecimaltoHexadecimal(int number);
@@ -41,7 +41,7 @@ int function(int choice) {
     case 2 :
         printf("Enter Decimal number: ");
         scanf("%d", &number);
-        printf("Binary number: ", DecimaltoBinary(number));
+        DecimaltoBinary(number);
         break;
     case 3 :
         printf("Enter Decimal number: ");
@@ -81,8 +81,26 @@ int BinarytoDecimal(int number) {
     return decimal;
 }
 
-int DecimaltoBinary(int number) {
+void DecimaltoBinary(int number) {
+    int binary[32];
+    int i = 0;
 
+    if (number == 0) {
+        printf("Binary equivalent: 0\n");
+        return;
+    }
+
+    while (number > 0) {
+        binary[i] = number % 2;
+        number = number / 2;
+        i++;
+    }
+
+    printf("Binary equivalent: ");
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%d", binary[j]);
+    }
+    printf("\n");
 }
 
 int DecimaltoOctal(int number) {
