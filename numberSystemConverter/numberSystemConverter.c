@@ -13,8 +13,8 @@ int main() {
     int choice;
 
     printf("\nSelect an operation\n\n");
-    printf("1. Binary to Decimal\n");
-    printf("2. Decimal to Binary\n");
+    printf("1. Decimal to Binary\n");
+    printf("2. Binary to Decimal\n");
     printf("3. Decimal to Octal\n");
     printf("4. Octal to Decimal\n");
     printf("5. Decimal to Hexadecimal\n");
@@ -33,12 +33,12 @@ int function(int choice) {
 
     switch (choice)
     {
-    case 1 :
+    case 2 :
         printf("Enter Binary number: ");
         scanf("%d", &number);
         printf("Decimal number: %d", BinarytoDecimal(number));
         break;
-    case 2 :
+    case 1 :
         printf("Enter Decimal number: ");
         scanf("%d", &number);
         DecimaltoBinary(number);
