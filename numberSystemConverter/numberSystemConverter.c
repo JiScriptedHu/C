@@ -6,7 +6,7 @@ int BinarytoDecimal(int number);
 void DecimaltoBinary(int number);
 void DecimaltoOctal(int number);
 int OctaltoDecimal(int number);
-int DecimaltoHexadecimal(int number);
+void DecimaltoHexadecimal(int number);
 int HexadecimaltoDecimal(int number);
 
 int main() {
@@ -56,7 +56,7 @@ int function(int choice) {
     case 5 :
         printf("Enter Decimal number: ");
         scanf("%d", &number);
-        printf("Hexadecimal number: %d", DecimaltoHexadecimal(number));
+        DecimaltoHexadecimal(number);
         break;
     case 6 :
         printf("Enter Hexadecimal number: ");
@@ -138,8 +138,34 @@ int OctaltoDecimal(int number) {
     return decimal;
 }
 
-int DecimaltoHexadecimal(int number) {
+void DecimaltoHexadecimal(int number) {
 
+    if (number == 0) {
+        printf("Hexadecimal equivalent: 0\n");
+        return;
+    }
+
+    int hex[50];
+    int i = 0;
+
+    while (number > 0) {
+        int remainder = number % 16;
+
+        if (remainder < 10) {
+            hex[i] = remainder + '0';
+        } else {
+            hex[i] = remainder - 10 + 'A';
+        }
+        i++;
+
+        number = number / 16;
+    }
+
+    printf("Hexadecimal equivalent: ");
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%c", hex[j]);
+    }
+    printf("\n");
 }
 
 int HexadecimaltoDecimal(int number) {
