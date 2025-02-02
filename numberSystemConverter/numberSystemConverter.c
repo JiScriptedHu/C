@@ -126,7 +126,16 @@ void DecimaltoOctal(int number) {
 }
 
 int OctaltoDecimal(int number) {
+    int decimal = 0, i = 0, remainder;
 
+    while (number != 0) {
+        remainder = number % 10;
+        decimal += remainder * pow(8, i);
+        number /= 10;
+        i++;
+    }
+
+    return decimal;
 }
 
 int DecimaltoHexadecimal(int number) {
