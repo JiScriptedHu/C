@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 int function(int choice);
 int BinarytoDecimal(int number);
@@ -7,7 +8,7 @@ void DecimaltoBinary(int number);
 void DecimaltoOctal(int number);
 int OctaltoDecimal(int number);
 void DecimaltoHexadecimal(int number);
-int HexadecimaltoDecimal(int number);
+int HexadecimaltoDecimal(char hex[]);
 
 int main() {
     int choice;
@@ -30,6 +31,7 @@ int main() {
 
 int function(int choice) {
     int number;
+    char hex[50];
 
     switch (choice)
     {
@@ -60,8 +62,8 @@ int function(int choice) {
         break;
     case 6 :
         printf("Enter Hexadecimal number: ");
-        scanf("%d", &number);
-        printf("Decimal number: %d", HexadecimaltoDecimal(number));
+        scanf("%s", hex);
+        printf("Decimal number: %d", HexadecimaltoDecimal(hex));
         break;
     default:
         break;
@@ -168,6 +170,24 @@ void DecimaltoHexadecimal(int number) {
     printf("\n");
 }
 
-int HexadecimaltoDecimal(int number) {
-    
+int HexadecimaltoDecimal(char hex[]) {
+    int decimal = 0;
+    int len = strlen(hex);
+
+    for (int i = 0; i < len; i++) {
+        char c = hex[i];
+        int value = 0;
+
+        if (c >= '0' && c <= '9') {
+            value = c - '0';
+        } else if (c >= 'A' && c <= 'F') {
+            value = c - 'A' + 10;
+        } else if (c >= 'a' && c <= 'f') {
+            value = c - 'a' + 10;
+        }
+
+        decimal += value * pow(16, len - i - 1);
+    }
+
+    return decimal;
 }
