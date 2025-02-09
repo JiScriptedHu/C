@@ -6,6 +6,7 @@ struct account {
     int age;
     long long contactNo;
     long long accountNo;
+    long long balance;
 };
 
 struct account accounts[100];
@@ -13,6 +14,8 @@ int accountCount = 0;
 
 void createAccount();
 void searchAccount();
+long long depositMoney(long long balance);
+long long withdrawMoney(long long balance);
 
 int main() {
     int menuInput;
@@ -54,6 +57,8 @@ void createAccount() {
     scanf("%d", &newAccount.age);
     printf("Enter Contact Number: ");
     scanf("%lld", &newAccount.contactNo);
+    printf("Enter amount to deposit: ");
+    scanf("%lld", &newAccount.balance);
 
     newAccount.accountNo = 2512010000LL + accountCount;
 
@@ -64,6 +69,7 @@ void createAccount() {
 }
 
 void searchAccount() {
+    int accountMenu;
     long long searchAccNo, found = 0;
     printf("Enter Account Number to search: ");
     scanf("%lld", &searchAccNo);
@@ -76,6 +82,25 @@ void searchAccount() {
             printf("Age: %d\n", accounts[i].age);
             printf("Contact No: %lld\n", accounts[i].contactNo);
             printf("Account No: %lld\n", accounts[i].accountNo);
+            printf("Available Balance: %lld\n", accounts[i].balance);
+
+            printf("1. Deposit Money\n");
+            printf("2. Withdraw Money\n");
+            printf("3. Close menu and exit\n");
+            printf("Input: ");
+            scanf("%d", &accountMenu);
+
+            if (accountMenu == 1) {
+                accounts[i].balance = depositMoney(accounts[i].balance);
+            } else if (accountMenu == 2) {
+                accounts[i].balance = withdrawMoney(accounts[i].balance);
+            } else if (accountMenu == 3) {
+                printf("Exited\n");
+                break;
+            } else {
+                printf("Invalid input! Please try again.\n");
+            }
+
             found = 1;
             break;
         }
@@ -84,4 +109,28 @@ void searchAccount() {
     if (!found) {
         printf("Account not found.\n");
     }
+}
+
+long long depositMoney(long long balance) {
+    long long addMoney;
+
+    printf("Enter amount to deposit: ");
+    scanf("%lld", &addMoney);
+
+    balance += addMoney;
+    printf("Available Balance: %lld\n", balance);
+
+    return balance;
+}
+
+long long withdrawMoney(long long balance) {
+    long long removeMoney;
+
+    printf("Enter amount to deposit: ");
+    scanf("%lld", &removeMoney);
+
+    balance -= removeMoney;
+    printf("Available Balance: %lld\n", balance);
+
+    return balance;
 }
